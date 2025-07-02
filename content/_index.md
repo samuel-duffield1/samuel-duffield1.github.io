@@ -22,5 +22,3 @@ date_format = "%b %-d, %Y"
 
 
 +++
-
-Index Page 1234
