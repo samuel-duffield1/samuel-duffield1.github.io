@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="Demo posts page for zola-theme-serene">
+
+  <title>EdgeAI Machine Vision on Deployed Robotics Projects</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://samuel-duffield1.github.io/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://samuel-duffield1.github.io/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://samuel-duffield1.github.io/img/apple-touch-icon.png">
+  
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a233;
+    --primary-decoration-color: #5871a210;
+    --bg-color: #ffffff;
+    --text-color: #2f3030;
+    --text-pale-color: #767676;
+    --text-decoration-color: #a9a9a9;
+    --highlight-mark-color: #5f75b020;
+
+    --callout-note-color: #5871a2;
+    --callout-tip-color: #268556;
+    --callout-important-color: #885fc9;
+    --callout-warning-color: #ab6632;
+    --callout-caution-color: #c64e4e;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #6f8fd1;
+    --primary-pale-color: #6f8fd166;
+    --primary-decoration-color: #6f8fd112;
+    --bg-color: #1c1c1c;
+    --text-color: #c1c1c1;
+    --text-pale-color: #848484;
+    --text-decoration-color: #5f5f5f;
+    --highlight-mark-color: #8296cb3b;
+
+    --callout-note-color: #6f8fd1;
+    --callout-tip-color: #47976f;
+    --callout-important-color: #9776cd;
+    --callout-warning-color: #ad7a52;
+    --callout-caution-color: #d06161;
+  }
+
+  /* typography */
+  body {
+    --main-font: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 60px;
+    --font-size: 16px;
+    --line-height: 1.75;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 0.75;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-decoration-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+</style>
+
+  <link rel="stylesheet" href="https://samuel-duffield1.github.io/main.css">
+  
+
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+
+  
+</head>
+
+<body class="post">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = 'https://samuel-duffield1.github.io/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#software-bom">Software BoM</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#what-you-ll-need">What You&#x27;ll Need</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#solution-architecture">Solution Architecture</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#code-dependancies">Code Dependancies</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#the-camera-opencv-via-libcamera">The Camera (OpenCV via libcamera)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#the-model-yolo">The Model (Yolo)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#the-display-flask-webserver">The Display (Flask WebServer)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#dockerfile-and-compose">Dockerfile and Compose</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#result">Result</a>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+
+    </button>
+    
+  </aside>
+  <main>
+    
+<header>
+  <nav>
+    <a href="https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts">← Back</a>
+  </nav>
+</header>
+
+
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+"></div>
+      
+      <article class="prose">
+        <h1>EdgeAI Machine Vision on Deployed Robotics Projects</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">Jul 2, 2025</span>
+            </div>
+
+          
+        </div>
+
+        
+        
+
+        
+
+        <p>Author: Sam Duffield</p>
+<p>Bringing machine learning to your edge computer vision projects is more accessible than ever. For any modern robot or smart device, the ability to observe, detect, and act on its surroundings is becoming a critical feature.</p>
+<p>These are my personal notes on how to quickly bootstrap an object detection application in  Robotics projects.  This guide deliberately <strong>does not share project-complete source code</strong>, rather code-snippets to aid your thinking &amp; shape your own solution. In my experience, it is rarely lack of source code that slows a project down, but rather dependancy-conflicts &amp;/or poor implementation architectures. This guide will hopefully nudge you in the right direction.</p>
+<p>This guide shares the core-components to combine the power of OpenCV and an Ultralytics YOLOv8 model. Additionally, with <a rel="nofollow noreferrer" href="https://www.balena.io/">Balena</a>, you can deploy &amp; manage a robust and scalable solution across a fleet of devices, making it ideal for hobbyists and professionals alike. Why containers? You'll find many arguments for the use of containers for software deployment (&amp; development) out there on the web. For robotics projects &amp; Edge AI, they provide a great way to isolate your dependancies in a network-secure environment in a packaged artefact that you can ship between devices &amp; targets with ease.</p>
+<p>For simplicity &amp; rapid iteration/development, this guide uses Python 3.11. Python is a great language for iteration of unrefined ideas to build concept demonstrators for VC's and investors, and leverages several accelerated libraries &amp; runtimes written in C and Rust under the hood.</p>
+<h2 id="software-bom">Software BoM<a class="zola-anchor" href="#software-bom" aria-label="Anchor link for: software-bom" style="visibility: hidden;"></a>
+</h2>
+<ul>
+<li><strong>Balena:</strong> An all-in-one platform for managing your fleet of connected devices. <a rel="nofollow noreferrer" href="https://www.balena.io/os">BalenaOS</a>, a minimal Linux distribution, is optimized for running Docker containers. BalenaCloud allows you to build, deploy, and manage your applications remotely. This means you can update your device's software with a simple <code>balena push</code>. Read the Getting Started guide <a rel="nofollow noreferrer" href="https://docs.balena.io/learn/getting-started/raspberrypi5/python/">here</a>.</li>
+<li><strong>OpenCV:</strong> The Swiss Army knife of computer vision. This open-source library provides a vast array of tools for image and video analysis. We'll use it to capture video from a camera and preprocess it for our object detection model.</li>
+<li><strong>Ultralytics (YOLOv8):</strong> Ultralytics provides highly efficient and accurate object detection models. YOLOv8 is a robust iteration, offering state-of-the-art performance, making it perfect for resource-constrained edge devices.</li>
+</ul>
+<h2 id="what-you-ll-need">What You'll Need<a class="zola-anchor" href="#what-you-ll-need" aria-label="Anchor link for: what-you-ll-need" style="visibility: hidden;"></a>
+</h2>
+<p>To bring up a fleet-managed robotics project complete with machine vision, you'll need the following:</p>
+<ul>
+<li><strong>A supported embedded Linux device:</strong> A Raspberry Pi 5 is an excellent choice for its recent CPU performance enhancements, and the ability to integrate hardware accelerators such as the Hailo-8 (future guides!).</li>
+<li><strong>A compatible camera:</strong> A USB webcam or the Raspberry Pi Camera Module will work perfectly.</li>
+<li><strong>A free BalenaCloud account:</strong> Sign up at <a rel="nofollow noreferrer" href="https://www.balena.io/">balena.io</a>.</li>
+<li><strong>The Balena CLI tool:</strong> Installation instructions can be found in the <a rel="nofollow noreferrer" href="https://www.balena.io/docs/reference/cli/">Balena documentation</a>.</li>
+<li><strong>A local development environment with Git and Docker installed.</strong></li>
+</ul>
+<h2 id="solution-architecture">Solution Architecture<a class="zola-anchor" href="#solution-architecture" aria-label="Anchor link for: solution-architecture" style="visibility: hidden;"></a>
+</h2>
+<p>Many edge-deployed machine vision projects, especially robotics projects, will have a camera connected, but not a screen. Hence, <code>flask</code> is recommended to build a small web-server to serve images to network devices on the same local network. Additional security options could be provided, such as encrypted images or authentication, but these are beyond the scope of this article.</p>
+<p>For sharing classification output with your robotics application, FastDDS (or other DDS implementations) is recommended to interface with the ROS2 environment your robotics control application is running in. A full robotics control application is beyond the scope of this article, but may be covered in a future guide.</p>
+<p><img src="https://samuel-duffield1.github.io/posts/machine-vision/imgs/block-diagram.png" alt="" /></p>
+<h2 id="code-dependancies">Code Dependancies<a class="zola-anchor" href="#code-dependancies" aria-label="Anchor link for: code-dependancies" style="visibility: hidden;"></a>
+</h2>
+<p>Your Python project will require the following dependancies.
+If you work in a commercially sensitive environment it's a great idea to vendor these dependancies locally, or self-host a package manager:</p>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">opencv-python == &quot;4.9.0.80&quot;
+</span><span class="z-text z-plain">tensorflow == &quot;2.16.1&quot;
+</span><span class="z-text z-plain">tensorflow-hub == &quot;0.16.1&quot;
+</span><span class="z-text z-plain">ultralytics == &quot;8.2.75&quot;
+</span><span class="z-text z-plain">flask == &quot;3.0.2&quot;
+</span><span class="z-text z-plain">pillow == &quot;10.4.0&quot;
+</span></code></pre>
+<h2 id="the-camera-opencv-via-libcamera">The Camera (OpenCV via <code>libcamera</code>)<a class="zola-anchor" href="#the-camera-opencv-via-libcamera" aria-label="Anchor link for: the-camera-opencv-via-libcamera" style="visibility: hidden;"></a>
+</h2>
+<p>There are <em>hundreds</em> of tutorials on how to use OpenCV in Python with a camera connected to a linux device. I recommend the following:</p>
+<ul>
+<li><a rel="nofollow noreferrer" href="https://youtu.be/sd25t4HmFdU">Control your Webcam with Python - OpenCV Beginners Tutorial</a></li>
+<li><a rel="nofollow noreferrer" href="https://youtu.be/rICplpK28SI">Capture Video from Camera using Python OpenCV</a></li>
+<li><a rel="nofollow noreferrer" href="https://youtu.be/5ZrtPi-7EN0">How to Capture an Image From a Webcam Using Python OpenCV</a></li>
+</ul>
+<p>However, what I would advise is reading the documentation on how the image should be Transformed to align with the dimensions the the model tensors are expecting.</p>
+<p>Such a transformation in code may look as follows (to 640 x 480 pixel format):</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Decode JPEG frame data to OpenCV image format
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">data</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">numpy</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">array</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">original_image</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">data</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">img</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cv2</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">imdecode</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-variable z-parameter z-python">buf</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">data</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">flags</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cv2</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-variable z-other z-constant z-python">IMREAD_COLOR</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Resize image to standard input size for YOLOv8 model
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">img</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cv2</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">resize</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">img</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">640</span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">480</span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">interpolation</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cv2</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-variable z-other z-constant z-python">INTER_LINEAR</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Perform inference with streaming results for memory efficiency
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">results</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-language z-python">self</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">model</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">img</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">stream</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-language z-python">True</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">verbose</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-language z-python">False</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-loop z-for z-python"><span class="z-keyword z-control z-loop z-for z-python">for</span> <span class="z-meta z-generic-name z-python">result</span> <span class="z-keyword z-control z-loop z-for z-in z-python">in</span></span><span class="z-meta z-statement z-loop z-for z-python"> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">results</span></span></span><span class="z-meta z-statement z-loop z-for z-python"><span class="z-punctuation z-section z-block z-loop z-for z-python">:</span></span>
+</span><span class="z-source z-python">	<span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Process COCO results...
+</span></span></code></pre>
+<h2 id="the-model-yolo">The Model (Yolo)<a class="zola-anchor" href="#the-model-yolo" aria-label="Anchor link for: the-model-yolo" style="visibility: hidden;"></a>
+</h2>
+<p>You can download the <code>yolov8n.pt</code> model offline <a rel="nofollow noreferrer" href="https://docs.ultralytics.com/models/yolov8/#performance-metrics">here</a>. I recommend the <code>v8n</code> model for Edge Compute devices, due to its reduced <code>FLOP</code> (Floating Point Operations) &amp; consequently reduced CPU speed on compute-restrained devices typically found on Embedded Linux devices.</p>
+<p>I  would advice you structure your application to such that you contain the model within a data structure, with member-methods to perform appropriate operations (such as <code>def perform_classification(self, image :Image) -&gt; output</code>):</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-from z-python">from</span></span><span class="z-meta z-statement z-import z-python"><span class="z-meta z-import-source z-python"> <span class="z-meta z-import-path z-python"><span class="z-meta z-import-name z-python">ultralytics</span></span> <span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-python">import</span></span></span></span><span class="z-meta z-statement z-import z-python"></span><span class="z-meta z-statement z-import z-python"> <span class="z-variable z-other z-constant z-python">YOLO</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Directory path to external model file
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">EXTERN_FILES_DIR</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">os</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">path</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">join</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">os</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">path</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">dirname</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">os</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">path</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">realpath</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-support z-variable z-magic z-python">__file__</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">assets<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">Ultralytics<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-class z-python"><span class="z-storage z-type z-class z-python"><span class="z-keyword z-declaration z-class z-python">class</span></span> <span class="z-entity z-name z-class z-python"><span class="z-meta z-generic-name z-python">UltralyticsYolov8n</span></span><span class="z-punctuation z-section z-class z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">    YOLOv8 Nano object detection model implementation using Ultralytics.
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">    This class provides a wrapper around the Ultralytics YOLOv8 nano model
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">    for real-time object detection. 
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">    <span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python">    <span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-support z-function z-magic z-python">__init__</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">self</span><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-constant z-language z-python">None</span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">        <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">        Initialize the YOLOv8 nano model.
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">        Loads the pre-trained YOLOv8 nano model from the assets directory
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">        and sets up the model configuration for inference.
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">        Raises:
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">            FileNotFoundError: If the yolov8n.pt model file cannot be found
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">            RuntimeError: If the model fails to initialize
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">        <span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Load the YOLOv8 nano model with verbose output disabled
+</span></span><span class="z-source z-python">        <span class="z-meta z-qualified-name z-python"><span class="z-variable z-language z-python">self</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">model</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">YOLO</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">os</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">path</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">join</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">EXTERN_FILES_DIR</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">yolov8n.pt<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">verbose</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-language z-python">False</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">        <span class="z-meta z-qualified-name z-python"><span class="z-variable z-language z-python">self</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">model_name</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">Ultralytics YoloV8n<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span>
+</span><span class="z-source z-python">        <span class="z-keyword z-control z-flow z-return z-python">return</span>
+</span><span class="z-source z-python">        
+</span><span class="z-source z-python"><span class="z-meta z-function z-python">    <span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">perform_classification</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">self</span><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">image</span><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Output</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">	    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">	    Your Code here!
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">	    <span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span></code></pre>
+<h2 id="the-display-flask-webserver">The Display (Flask WebServer)<a class="zola-anchor" href="#the-display-flask-webserver" aria-label="Anchor link for: the-display-flask-webserver" style="visibility: hidden;"></a>
+</h2>
+<p>Displaying your image using a webserver <strong>should be done concurrently</strong> to not slow the inference-loop of your model. A rough idea of how this can be achieved is shown below:</p>
+<p><img src="https://samuel-duffield1.github.io/posts/machine-vision/imgs/mermaid-chart.svg" alt="" /></p>
+<ul>
+<li><strong>1. Capture Frame:</strong> The dedicated <strong>Object Detection</strong> thread requests a new image from the <strong>Camera</strong>.</li>
+<li><strong>2. Raw Frame:</strong> The <strong>Camera</strong> provides a single, raw image frame back to the <strong>Object Detection</strong> thread.</li>
+<li><strong>3. Run YOLOv8 Inference:</strong> The <strong>Object Detection</strong> thread processes the frame internally. It uses the Ultralytics model to find objects and then draws visualization boxes and labels directly onto the image.</li>
+<li><strong>4. Update latest frame:</strong> The <strong>Object Detection</strong> thread places the newly processed (annotated) frame into a shared variable that the <strong>Web Server</strong> can access. This update is thread-safe to prevent conflicts.
+<ul>
+<li>You may want to implement a circular buffer in your own <code>WebServer</code> implementation to prevent slowing bottlenecks imposed by the Browser's web connection.</li>
+</ul>
+</li>
+<li><strong>5. GET /video_feed:</strong> A user opens your device's IP address in their <strong>Browser</strong>, which sends a request to the <strong>Web Server</strong> to start streaming the video feed.</li>
+<li><strong>6. Read latest frame:</strong> The <strong>Web Server</strong> thread continuously reads the most recent annotated frame from the shared variable.</li>
+<li><strong>7. Stream JPEG Frame:</strong> The <strong>Web Server</strong> sends the image frame to the <strong>Browser</strong>. This action repeats in a loop (steps 6 and 7), creating a live video stream for the user.</li>
+</ul>
+<h2 id="dockerfile-and-compose">Dockerfile and Compose<a class="zola-anchor" href="#dockerfile-and-compose" aria-label="Anchor link for: dockerfile-and-compose" style="visibility: hidden;"></a>
+</h2>
+<p>For Python-based OpenCV project, dependancies managed by the <code>apt</code> package-manager are minimised. This is because the <code>opencv-python</code> pypi package includes many of the pre-compiled runtime <code>.so</code> libraries that OpenCV depends on.</p>
+<p>Dockerfile:</p>
+<pre data-lang="dockerfile" class="language-dockerfile z-code"><code class="language-dockerfile" data-lang="dockerfile"><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">FROM</span> python:<span class="z-entity z-name z-enum z-tag-digest">3.11</span>
+</span><span class="z-source z-dockerfile">
+</span><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">WORKDIR </span>/app
+</span><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">COPY</span> . .
+</span><span class="z-source z-dockerfile">
+</span><span class="z-source z-dockerfile"><span class="z-comment z-dockerfile"><span class="z-punctuation z-definition z-comment z-dockerfile">#</span> Install system dependencies
+</span></span><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">RUN </span>apt-get update &amp;&amp; apt-get install -y \
+</span><span class="z-source z-dockerfile">    build-essential \
+</span><span class="z-source z-dockerfile">    libgl1-mesa-glx \
+</span><span class="z-source z-dockerfile">    libglib2.0-0 \
+</span><span class="z-source z-dockerfile">    git
+</span><span class="z-source z-dockerfile">
+</span><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">RUN </span>python -m venv venv
+</span><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">RUN </span>git init
+</span><span class="z-source z-dockerfile"><span class="z-keyword z-control z-dockerfile">RUN </span>venv/bin/pip install .
+</span><span class="z-source z-dockerfile">
+</span><span class="z-source z-dockerfile"><span class="z-comment z-dockerfile"><span class="z-punctuation z-definition z-comment z-dockerfile">#</span> CMD Variable for your application
+</span></span><span class="z-source z-dockerfile"><span class="z-keyword z-operator z-dockerfile">CMD </span>[<span class="z-string z-quoted z-double z-dockerfile"><span class="z-punctuation z-definition z-string z-begin z-dockerfile">&quot;</span>/app/venv/bin/python<span class="z-punctuation z-definition z-string z-end z-dockerfile">&quot;</span></span>, <span class="z-string z-quoted z-double z-dockerfile"><span class="z-punctuation z-definition z-string z-begin z-dockerfile">&quot;</span>/app/your-application-here.py<span class="z-punctuation z-definition z-string z-end z-dockerfile">&quot;</span></span>]
+</span></code></pre>
+<p>docker-compose.yml:</p>
+<pre data-lang="yaml" class="language-yaml z-code"><code class="language-yaml" data-lang="yaml"><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">version</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>2<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span>
+</span><span class="z-source z-yaml">
+</span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">services</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">app</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">build</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">      <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">context</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-constant z-numeric z-float z-decimal z-yaml"><span class="z-punctuation z-separator z-decimal z-yaml">.</span></span>
+</span><span class="z-source z-yaml">      <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">dockerfile</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">containers/Dockerfile</span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">ports</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>8787:8787<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">devices</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">	    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>/dev/video0:/dev/video0<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Map the camera device into the container
+</span></span></code></pre>
+<h2 id="result">Result<a class="zola-anchor" href="#result" aria-label="Anchor link for: result" style="visibility: hidden;"></a>
+</h2>
+<p>By combining a YoloV8 model, a camera and a display in a containerised environment as described above, you too should be able to bootstrap your robotics project with machine vision!</p>
+<p><img src="https://samuel-duffield1.github.io/posts/machine-vision/imgs/result.png" alt="" /></p>
+
+      </article>
+
+      
+      
+
+      
+      
+    </div>
+
+    
+
+
+<footer>
+  <div class="left">
+    <div class="copyright">
+      © 2025 Sam Duffield
+      
+      <span>|</span>
+      Built with <a href="https://www.getzola.org" rel="noreferrer" target="_blank">zola</a> and <a href="https://github.com/isunjn/serene" rel="noreferrer" target="_blank">serene</a>
+      
+    </div>
+  </div>
+
+  <div class="right">
+    
+    
+      
+    
+    
+    <a id="rss-btn" href="https://samuel-duffield1.github.io/posts/feed.xml">RSS</a>
+    
+    
+
+    
+    
+    
+    <button id="theme-toggle" aria-label="theme switch">
+      <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z" fill="currentColor"></path></svg>
+</span>
+      <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z" fill="currentColor"></path></svg>
+</span>
+    </button>
+    
+  </div>
+</footer>
+
+
+
+
+<dialog id="rss-mask">
+  <div>
+    <a href="https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts&#x2F;feed.xml">https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts&#x2F;feed.xml</a>
+    
+    
+    <button autofocus aria-label="copy" data-link="https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts&#x2F;feed.xml" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z" fill="currentColor"></path></svg>
+
+    </button>
+  </div>
+</dialog>
+
+
+
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="https://samuel-duffield1.github.io/js/main.js"></script>
+</body>
+
+</html>

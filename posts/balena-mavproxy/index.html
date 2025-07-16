@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="Demo posts page for zola-theme-serene">
+
+  <title>Remotely Piloting Drones with MAVProxy and Balena</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://samuel-duffield1.github.io/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://samuel-duffield1.github.io/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://samuel-duffield1.github.io/img/apple-touch-icon.png">
+  
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a233;
+    --primary-decoration-color: #5871a210;
+    --bg-color: #ffffff;
+    --text-color: #2f3030;
+    --text-pale-color: #767676;
+    --text-decoration-color: #a9a9a9;
+    --highlight-mark-color: #5f75b020;
+
+    --callout-note-color: #5871a2;
+    --callout-tip-color: #268556;
+    --callout-important-color: #885fc9;
+    --callout-warning-color: #ab6632;
+    --callout-caution-color: #c64e4e;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #6f8fd1;
+    --primary-pale-color: #6f8fd166;
+    --primary-decoration-color: #6f8fd112;
+    --bg-color: #1c1c1c;
+    --text-color: #c1c1c1;
+    --text-pale-color: #848484;
+    --text-decoration-color: #5f5f5f;
+    --highlight-mark-color: #8296cb3b;
+
+    --callout-note-color: #6f8fd1;
+    --callout-tip-color: #47976f;
+    --callout-important-color: #9776cd;
+    --callout-warning-color: #ad7a52;
+    --callout-caution-color: #d06161;
+  }
+
+  /* typography */
+  body {
+    --main-font: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 60px;
+    --font-size: 16px;
+    --line-height: 1.75;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 0.75;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-decoration-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+</style>
+
+  <link rel="stylesheet" href="https://samuel-duffield1.github.io/main.css">
+  
+
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+
+  
+</head>
+
+<body class="post">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = 'https://samuel-duffield1.github.io/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#what-is-mavproxy">What is MAVProxy?</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#what-is-balena">What is Balena?</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#putting-them-together-mavproxy-on-balena">Putting Them Together: MAVProxy on Balena</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#data-flow">Data-Flow</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#block-diagram">Block Diagram</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#suggestions-for-expansion">Suggestions for Expansion</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#conclusion">Conclusion</a>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+
+    </button>
+    
+  </aside>
+  <main>
+    
+<header>
+  <nav>
+    <a href="https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts">← Back</a>
+  </nav>
+</header>
+
+
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+"></div>
+      
+      <article class="prose">
+        <h1>Remotely Piloting Drones with MAVProxy and Balena</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">Jul 11, 2025</span>
+            </div>
+
+          
+        </div>
+
+        
+        
+
+        
+
+        <p>Author: Sam Duffield</p>
+<p>In the world of drones and IoT, the ability to control and monitor your devices from anywhere is a game-changer. Imagine having a drone in a remote location, sending back valuable data, and being able to manage it as if you were right there. This is where the power of MAVProxy and Balena comes in. By combining MAVProxy, a powerful ground control station for drones, with Balena, a platform for managing connected devices, you can create a robust and flexible system for remote drone operations.</p>
+<p>An <a rel="nofollow noreferrer" href="https://github.com/samuel-duffield1/balena-mavproxy">example repostiory</a> can be found on my personal github profile.</p>
+<hr />
+<h2 id="what-is-mavproxy">What is MAVProxy?<a class="zola-anchor" href="#what-is-mavproxy" aria-label="Anchor link for: what-is-mavproxy" style="visibility: hidden;"></a>
+</h2>
+<p>MAVProxy is a fully-featured, command-line-based ground control station (GCS) for MAVLink-enabled drones. MAVLink is a lightweight messaging protocol for communicating with drones and their components. MAVProxy allows you to:</p>
+<ul>
+<li><strong>Relay MAVLink messages:</strong> It can act as a bridge between your drone's flight controller and other devices on a network.</li>
+<li><strong>Run on-board scripts:</strong> You can automate drone behavior with Python scripts that run directly on the GCS.</li>
+<li><strong>Forward telemetry data:</strong> Stream data from your drone to multiple other GCS applications or data-logging services.</li>
+<li><strong>Extend functionality with modules:</strong> MAVProxy has a modular architecture that allows you to add new features, such as custom maps, antenna trackers, and more.</li>
+</ul>
+<p>Its lightweight and versatile nature makes it an ideal candidate for running on embedded systems and companion computers, which are often found on drones.</p>
+<hr />
+<h2 id="what-is-balena">What is Balena?<a class="zola-anchor" href="#what-is-balena" aria-label="Anchor link for: what-is-balena" style="visibility: hidden;"></a>
+</h2>
+<p>Balena is a complete IoT platform that simplifies the process of developing, deploying, and managing fleets of connected devices. At its core, Balena provides:</p>
+<ul>
+<li><strong>A container-based environment:</strong> Your applications run in Docker containers, making them portable, scalable, and easy to manage.</li>
+<li><strong>A robust OS:</strong> BalenaOS is a minimal, secure, and reliable operating system designed specifically for running containers on embedded devices.</li>
+<li><strong>Cloud-based management:</strong> The BalenaCloud dashboard gives you a centralized view of all your devices, allowing you to monitor their health, push updates, and manage their software from anywhere in the world.</li>
+<li><strong>Powerful networking:</strong> Balena provides a public URL for each device, allowing you to access them remotely, even if they are behind a firewall or on a cellular network.</li>
+</ul>
+<hr />
+<h2 id="putting-them-together-mavproxy-on-balena">Putting Them Together: MAVProxy on Balena<a class="zola-anchor" href="#putting-them-together-mavproxy-on-balena" aria-label="Anchor link for: putting-them-together-mavproxy-on-balena" style="visibility: hidden;"></a>
+</h2>
+<p>By deploying MAVProxy as a container on a Balena-managed device, you can create a powerful and flexible remote GCS. Here’s how it would work:</p>
+<ol>
+<li><strong>The Hardware:</strong> A companion computer, like a Raspberry Pi, is connected to your drone's flight controller. This device runs BalenaOS.</li>
+<li><strong>The Software:</strong> You create a Docker container that includes MAVProxy and any other tools or scripts you need. This container is then pushed to the BalenaCloud and deployed to your device.</li>
+<li><strong>The Connection:</strong> MAVProxy, running in its container on the device, communicates with the flight controller via a serial or network connection. It then forwards the MAVLink data to the internet via the BalenaCloud's VPN.</li>
+<li><strong>Remote Access:</strong> From your computer, you can connect to the MAVProxy instance running on the drone's companion computer through the BalenaCloud public URL. This gives you full control over the drone and access to its telemetry data, as if it were connected directly to your machine.</li>
+</ol>
+<h3 id="data-flow">Data-Flow<a class="zola-anchor" href="#data-flow" aria-label="Anchor link for: data-flow" style="visibility: hidden;"></a>
+</h3>
+<p><img src="https://samuel-duffield1.github.io/posts/balena-mavproxy/imgs/high-level-architecture.svg" alt="high-level-architecture" /></p>
+<h3 id="block-diagram">Block Diagram<a class="zola-anchor" href="#block-diagram" aria-label="Anchor link for: block-diagram" style="visibility: hidden;"></a>
+</h3>
+<p><img src="https://samuel-duffield1.github.io/posts/balena-mavproxy/imgs/block-diagram.svg" alt="block-diagram" /></p>
+<hr />
+<h2 id="suggestions-for-expansion">Suggestions for Expansion<a class="zola-anchor" href="#suggestions-for-expansion" aria-label="Anchor link for: suggestions-for-expansion" style="visibility: hidden;"></a>
+</h2>
+<p>This is just the beginning. Here are a few ways this project could be expanded:</p>
+<ul>
+<li><strong>Multi-drone management:</strong> Use Balena's fleet management capabilities to control and monitor multiple drones at once.</li>
+<li><strong>AI and Machine Learning:</strong> Add another container to your Balena device to run AI and machine learning models for tasks like object detection or autonomous navigation.</li>
+<li><strong>Custom Web Interface:</strong> Create a web-based dashboard, running in its own container on the device, to provide a user-friendly interface for monitoring and controlling the drone.</li>
+<li><strong>4G/5G Connectivity:</strong> Add a cellular modem to your companion computer for truly long-range and remote operations.</li>
+<li><strong>Data Logging and Analysis:</strong> Stream telemetry data from MAVProxy to a cloud-based database or analytics platform for post-flight analysis.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion" style="visibility: hidden;"></a>
+</h2>
+<p>The combination of MAVProxy and Balena offers a powerful and flexible solution for remote drone operations. By leveraging the container-based approach and cloud management capabilities of Balena, you can create a GCS that is not only robust and scalable but also easy to manage and update. Whether you're a hobbyist, a researcher, or a commercial drone operator, this setup has the potential to unlock a new world of possibilities for your drone projects. 🚁</p>
+
+      </article>
+
+      
+      
+
+      
+      
+    </div>
+
+    
+
+
+<footer>
+  <div class="left">
+    <div class="copyright">
+      © 2025 Sam Duffield
+      
+      <span>|</span>
+      Built with <a href="https://www.getzola.org" rel="noreferrer" target="_blank">zola</a> and <a href="https://github.com/isunjn/serene" rel="noreferrer" target="_blank">serene</a>
+      
+    </div>
+  </div>
+
+  <div class="right">
+    
+    
+      
+    
+    
+    <a id="rss-btn" href="https://samuel-duffield1.github.io/posts/feed.xml">RSS</a>
+    
+    
+
+    
+    
+    
+    <button id="theme-toggle" aria-label="theme switch">
+      <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z" fill="currentColor"></path></svg>
+</span>
+      <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z" fill="currentColor"></path></svg>
+</span>
+    </button>
+    
+  </div>
+</footer>
+
+
+
+
+<dialog id="rss-mask">
+  <div>
+    <a href="https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts&#x2F;feed.xml">https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts&#x2F;feed.xml</a>
+    
+    
+    <button autofocus aria-label="copy" data-link="https:&#x2F;&#x2F;samuel-duffield1.github.io&#x2F;posts&#x2F;feed.xml" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z" fill="currentColor"></path></svg>
+
+    </button>
+  </div>
+</dialog>
+
+
+
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="https://samuel-duffield1.github.io/js/main.js"></script>
+</body>
+
+</html>
