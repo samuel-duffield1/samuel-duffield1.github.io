@@ -9,6 +9,8 @@ Author: Sam Duffield
 
 In the world of drones and IoT, the ability to control and monitor your devices from anywhere is a game-changer. Imagine having a drone in a remote location, sending back valuable data, and being able to manage it as if you were right there. This is where the power of MAVProxy and Balena comes in. By combining MAVProxy, a powerful ground control station for drones, with Balena, a platform for managing connected devices, you can create a robust and flexible system for remote drone operations.
 
+An [example repostiory](https://github.com/samuel-duffield1/balena-mavproxy) can be found on my personal github profile.
+
 -----
 
 ## What is MAVProxy?
