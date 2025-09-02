@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://samuel-duffield1.github.io/"
-title = "xxxx"
-description = "xxxx xxxx xxxx"
+title = "Sam Duffield's Blog"
+description = "A blog about programming, technology, and other stuff."
 default_language = "en"
 theme = "serene"
 output_dir = "public"
