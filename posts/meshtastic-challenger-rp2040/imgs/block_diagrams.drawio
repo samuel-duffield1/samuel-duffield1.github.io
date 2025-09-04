@@ -1,0 +1,84 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
+  <diagram name="Page-1" id="y1Si9dsn0HTktbp0gzBn">
+    <mxGraphModel dx="1433" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-26" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="1140" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-1" value="Physical AI Edge Device (Robot, Drone, Vehicle)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-2" value="Command &amp;amp; Control Unit" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="660" y="360" width="460" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-3" value="NVIDIA Jetson &amp;amp; Balena OS" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-4" value="ROS2 &amp;amp; MAVLINK&lt;br&gt;Container" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="85" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-5" value="Challenger RP2040 &amp;amp; RFM95W Radio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-6" value="&lt;font face=&quot;Courier New&quot;&gt;/dev/ttyUSB0&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;verticalAlign=middle;horizontal=0;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-4" target="aRCST7GbX2fQ_0VNnL3p-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-7" value="Remote Field Gateway" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="460" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-8" value="Raspberry Pi Zero 2W &amp;amp; Balena OS" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="855" y="73" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-9" target="aRCST7GbX2fQ_0VNnL3p-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-9" value="meshtasticd&lt;br&gt;Container" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="880" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-10" value="Challenger RP2040 &amp;amp; RFM95W Radio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="680" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-15" value="10-100 kilometers" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-5" target="aRCST7GbX2fQ_0VNnL3p-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="270" as="sourcePoint" />
+            <mxPoint x="560" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-16" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Courier New&amp;quot;; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;/dev/ttyUSB0&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.975;entryY=0.458;entryDx=0;entryDy=0;entryPerimeter=0;verticalAlign=middle;horizontal=0;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-8" target="aRCST7GbX2fQ_0VNnL3p-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-17" target="aRCST7GbX2fQ_0VNnL3p-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-17" value="Solar Cells" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="98" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-20" value="AWS MQTT&lt;br&gt;Broker" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="230" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.623;exitY=-0.009;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-2" target="aRCST7GbX2fQ_0VNnL3p-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-23" value="ATAK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="890" y="375" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-24" value="Worldwide" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-2" target="aRCST7GbX2fQ_0VNnL3p-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="300" as="sourcePoint" />
+            <mxPoint x="800" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aRCST7GbX2fQ_0VNnL3p-25" value="Beyond Visual Line of Sight&lt;br&gt;(BVLOS)&lt;br&gt;Control" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.487;entryY=0.987;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" edge="1" parent="1" source="aRCST7GbX2fQ_0VNnL3p-2" target="aRCST7GbX2fQ_0VNnL3p-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="270" as="sourcePoint" />
+            <mxPoint x="470" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
